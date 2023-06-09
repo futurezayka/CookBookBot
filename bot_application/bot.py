@@ -5,7 +5,6 @@ import telebot
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'test_task.settings')
 django.setup()
 
-os.environ['TOKEN']
 from keyboards import create_main_menu_keyboard, create_gender_keyboard
 from custom_adminka.models import CurrentUser, Recipe
 from fsm import BotFSM, State
@@ -76,6 +75,6 @@ class RecipeBot:
 
 
 if __name__ == "__main__":
-    token = os.environ['TOKEN']
+    token = "6187600441:AAHPjFsPhF-ut0aM8oXZrDLjZnYK7DxVriY"
     bot = RecipeBot(token)
     bot.run()
