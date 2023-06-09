@@ -1,0 +1,29 @@
+{% extends 'custom_adminka/base.html' %}
+
+{% block content %}
+    <h2>Список Користувачів</h2>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Ім'я</th>
+            <th>Стать</th>
+            <th>Телеграм</th>
+            <th>Ім'я у телеграмі</th>
+            <th>Прізвище у телеграмі</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.gender }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.first_name }}</td>
+                <td>{{ user.last_name }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'custom_adminka/base.html' %}
+
+{% block content %}
+    <h2>Список Рецептів</h2>
+    <a href="{% url 'recipe_create' %}" class="btn btn-primary mb-3">Додати Рецепт</a>
+    {% if recipes %}
+        <table class="table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Назва</th>
+                <th>Фото</th>
+                <th>Опис</th>
+                <th>Дії</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for recipe in recipes %}
+                <tr>
+                    <td>{{ recipe.id }}</td>
+                    <td>{{ recipe.name }}</td>
+                    <td>
+                        <div class="d-flex align-items-center">
+                            <div class="image-container mr-3">
+                                {% if recipe.photo %}
+                                    <img src="{{ recipe.photo.url }}" alt="{{ recipe.name }}" class="recipe-image">
+                                {% endif %}
+                            </div>
+                        </div>
+                    </td>
+                    <td>{{ recipe.description }}</td>
+                    <td>
+                        <a href="{% url 'recipe_update' recipe.pk %}"
+                           class="btn btn-primary btn-sm mr-2" style="margin-bottom: 5px">Редагувати</a>
+                        <form method="post" action="{% url 'recipe_delete' recipe.pk %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger btn-sm">Видалити</button>
+                        </form>
+                    </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="5" class="empty-list">Немає доступних рецептів</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Немає доступних рецептів</p>
+    {% endif %}
+{% endblock %}
