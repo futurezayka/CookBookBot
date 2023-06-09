@@ -30,7 +30,7 @@ class RecipeBot:
             lambda message: self.show_main_menu(message.chat.id))
 
     def run(self):
-        self.bot.polling()
+        self.bot.infinity_polling()
 
     def handle_start(self, message):
         if not CurrentUser.objects.filter(id=message.chat.id).exists():
