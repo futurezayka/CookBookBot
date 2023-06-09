@@ -1,2 +1,2 @@
 web: gunicorn test_task.wsgi:application --log-file -
-heroku logs --ta
+bot: python bot_application/bot.py
