@@ -13,3 +13,5 @@ urlpatterns = [
     path('recipes/<int:recipe_id>/edit/', recipe_edit, name='recipe_update'),
     path('recipes/<int:recipe_id>/delete/', recipe_delete, name='recipe_delete'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
