@@ -16,7 +16,7 @@ class CurrentUser(models.Model):
 
 class Recipe(models.Model):
     name = models.CharField(max_length=255)
-    photo = models.ImageField(upload_to='recipes', blank=True, null=True)
+    photo = models.ImageField(upload_to='recipes/', blank=True, null=True)
     description = models.TextField()
 
     def __str__(self):
