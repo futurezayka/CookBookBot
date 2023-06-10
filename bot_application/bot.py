@@ -1,6 +1,7 @@
 import os
 import django
 import telebot
+from decouple import config
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'test_task.settings')
 django.setup()
@@ -76,5 +77,5 @@ class RecipeBot:
 
 if __name__ == "__main__":
     token = "6187600441:AAHPjFsPhF-ut0aM8oXZrDLjZnYK7DxVriY"
-    bot = RecipeBot(token)
+    bot = RecipeBot(config('TOKEN'))
     bot.run()
