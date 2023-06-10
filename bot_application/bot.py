@@ -76,6 +76,5 @@ class RecipeBot:
 
 
 if __name__ == "__main__":
-    token = "6187600441:AAHPjFsPhF-ut0aM8oXZrDLjZnYK7DxVriY"
     bot = RecipeBot(config('TOKEN'))
     bot.run()
