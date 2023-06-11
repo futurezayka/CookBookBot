@@ -1,6 +1,6 @@
 {% extends 'custom_adminka/base.html' %}
-{% if not user_is_authenticated %}
-    {% block content %}
+{% block content %}
+    {% if not user_is_authenticated %}
         <h2>Вхід в Адмін Панель</h2>
         {% if error_message %}
             <p class="error">{{ error_message }}</p>
@@ -17,5 +17,5 @@
             </div>
             <button type="submit" class="btn btn-primary">Увійти</button>
         </form>
-    {% endblock %}
-{% endif %}
+    {% endif %}
+{% endblock %}
