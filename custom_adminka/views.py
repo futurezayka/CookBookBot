@@ -74,28 +74,3 @@ def recipe_delete(request, recipe_id):
         recipe.delete()
         return redirect('recipe_list')
     return HttpResponse(request, "Сталася помилка.")
-
-# class RecipeListView(ListView):
-#     model = Recipe
-#     template_name = 'custom_adminka/recipe_list.html'
-#     context_object_name = 'recipes'
-#
-#
-# class RecipeCreateView(CreateView):
-#     model = Recipe
-#     template_name = 'custom_adminka/recipe_create.html'
-#     fields = ['name', 'photo', 'description']
-#     success_url = reverse_lazy('recipe_list')
-#
-#
-# class RecipeUpdateView(UpdateView):
-#     model = Recipe
-#     template_name = 'custom_adminka/recipe_update.html'
-#     fields = ['name', 'photo', 'description']
-#     success_url = reverse_lazy('recipe_list')
-#
-#
-# class RecipeDeleteView(DeleteView):
-#     model = Recipe
-#     template_name = 'custom_adminka/recipe_delete.html'
-#     success_url = reverse_lazy('recipe_list')
